@@ -108,7 +108,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+<<<<<<< HEAD
 ## Typescript
 dist
 
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
+=======
+
+# End of https://www.gitignore.io/api/node,windows,visualstudiocode
+>>>>>>> b531883b09191355c3d31ed600c04f9e8b72b3ca
