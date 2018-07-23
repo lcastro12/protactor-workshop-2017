@@ -6,4 +6,5 @@ exports.config = {
         browser.ignoreSynchronization = true;
       }
    }
-      
+
+   
