@@ -7,6 +7,7 @@
     "clean": "rd /s /q dist",
     "prebuild": "npm run clean",
     "build": "tsc",
+    "webdriver-update": "webdriver-manager update",
     "test": "npm run build && protractor dist/protractor/config.js"
   },
   "repository": {
