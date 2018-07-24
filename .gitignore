@@ -109,4 +109,7 @@ $RECYCLE.BIN/
 *.lnk
 
 
-# End of https://www.gitignore.io/api/node,windows,visualstudiocode
+## Typescript
+dist
+
+# End of https://www.gitignore.io/api/node,windows,visualstudiocod
