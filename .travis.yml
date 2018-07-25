@@ -1,14 +1,20 @@
 language: node_js
 cache:
  directories:
- - node_modules
+   - node_modules
 notifications:
  email: false
 node_js:
-- '7'
+  - '7'
 branches:
  except:
- - /^v\d+\.\d+\.\d+$/
+   - /^v\d+\.\d+\.\d+$/
 sudo: required
+dist: trusty
 addons:
- chrome: stable
+  sauce_connect: true
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
