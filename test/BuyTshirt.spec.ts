@@ -1,4 +1,4 @@
-import { $, browser } from 'protractor';
+import { $, browser, element, by } from 'protractor';
 
 describe('Buy a t-shirt', () => {
  beforeEach(() => {
@@ -8,20 +8,20 @@ describe('Buy a t-shirt', () => {
  it('then should be bought a t-shirt', async () => {
    await browser.get('http://automationpractice.com/');
    await(browser.sleep(10000));
-   await $('#block_top_menu > ul > li:nth-child(3) > a').click();
+   await element(by.id('block_top_menu')).element(by.partialLinkText('T-SHIRTS')).click();
    await(browser.sleep(3000));
    await
-   $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img').click();
+   element(by.id('center_column')).element(by.tagName('img')).click();
    await(browser.sleep(3000));
-   await $('#add_to_cart > button > span').click();
+   await element(by.id('add_to_cart')).element(by.tagName('span')).click();
    await(browser.sleep(3000));
-   await $('[style*="display: block;"] .button-container > a').click();
+   await element(by.css('[style*="display: block;"] .button-container')).element(by.tagName('a')).click();
    await(browser.sleep(3000));
-   await $('.cart_navigation span').click();
+   await element(by.css('.cart_navigation span')).click();
    await(browser.sleep(3000));
   
-   await $('#email').sendKeys('aperdomobo@gmail.com');
-   await $('#passwd').sendKeys('WorkshopProtractor');
+   await element(by.id('email')).sendKeys('aperdomobo@gmail.com');
+   await element(by.id('passwd')).sendKeys('WorkshopProtractor');
    await $('#SubmitLogin > span').click();
    await(browser.sleep(3000));
   
