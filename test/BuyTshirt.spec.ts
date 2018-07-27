@@ -1,4 +1,4 @@
-import { $, browser, element, by } from 'protractor';
+import { browser, element, by } from 'protractor';
 
 describe('Buy a t-shirt', () => {
  beforeEach(() => {
@@ -22,23 +22,23 @@ describe('Buy a t-shirt', () => {
   
    await element(by.id('email')).sendKeys('aperdomobo@gmail.com');
    await element(by.id('passwd')).sendKeys('WorkshopProtractor');
-   await $('#SubmitLogin > span').click();
+   await element(by.id('SubmitLogin')).element(by.css('span')).click();
    await(browser.sleep(3000));
   
-   await $('#center_column > form > p > button > span').click();
+   await element(by.id('center_column')).element(by.tagName('button')).element(by.tagName('span')).click();
    await(browser.sleep(3000));
 
-   await $('#cgv').click();
+   await element(by.id('cgv')).click();
    await(browser.sleep(3000));
 
-   await $('#form > p > button > span').click();
+   await element(by.id('form')).element(by.tagName('button')).element(by.tagName('span')).click();
    await(browser.sleep(3000));
-   await $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a').click();
+   await element(by.id('HOOK_PAYMENT')).element(by.tagName('div')).element(by.tagName('a')).click();
    await(browser.sleep(3000));
-   await $('#cart_navigation > button > span').click();
+   await element(by.id('cart_navigation')).element(by.tagName('button')).element(by.tagName('span')).click();
    await(browser.sleep(3000));
 
-   await expect($('#center_column > div > p > strong').getText())
+   await expect(element(by.id('center_column')).element(by.tagName('strong')).getText())
      .toBe('Your order on My Store is complete.');
  });
 });
