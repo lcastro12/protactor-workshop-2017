@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, protractor, $ } from 'protractor';
 import { MenuContentPage, ProductAddedModalPage, ProductDetailPage,
    SummaryStepPage, SignInStepPage, AddressStepPage, ShippingStepPage,
    PaymentStepPage, BankPaymentPage, OrderResumePage } from '../src/page';
@@ -24,6 +24,9 @@ describe('Buy a t-shirt', () => {
 
     await productAddedModalPage.goToProductAddedModal();
 
+    var EC = protractor.ExpectedConditions;
+    var condition= EC.presenceOf($('[style*="display: block;"] .button-container > a'));
+    await browser.wait(condition, 3000, 'error waiting');
     await summaryStepPage.goToSummaryStep();
 
     await signInStepPage.goToSignInStep();
