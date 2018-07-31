@@ -52,11 +52,12 @@ describe('Buy a t-shirt', () => {
             const paymentStepPage: PaymentStepPage = new PaymentStepPage();
             const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
             const orderResumePage: OrderResumePage = new OrderResumePage();
-            it('then should be bought a t-shirt', async () => {
-
+            beforeAll(async () => {
               await paymentStepPage.goToPaymentStep();
               await bankPaymentPage.goToBankPayment();
               await orderResumePage.goToOrderResume();
+            });
+            it('then should be bought a t-shirt', async () => {
               await expect(orderResumePage.inicialText.getText())
             .toBe('Your order on My Store is complete.');
             });
