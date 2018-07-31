@@ -59,7 +59,7 @@ describe('Buy a t-shirt', () => {
             });
             it('then should be bought a t-shirt', async () => {
               await expect(orderResumePage.inicialText.getText())
-            .toBe('Your order on My Store is complete.');
+              .toBe('Your order on My Store is complete.');
             });
           });
         });
