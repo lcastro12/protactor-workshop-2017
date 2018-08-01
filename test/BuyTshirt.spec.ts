@@ -19,7 +19,6 @@ describe('Buy a t-shirt', () => {
 
         await menuContentPage.goToTShirtMenu();
         //await productDetailPage.goToProductDetail();
-        browser.sleep(3000);
         await productListPage.selectProduct('Faded Short Sleeve T-shirts');
         await productAddedModalPage.goToProductAddedModal();
 
