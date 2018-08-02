@@ -11,7 +11,7 @@ describe(' Llenar Formulario', () => {
       beforeAll(async () => {
         const expectedCondition = protractor.ExpectedConditions;
         const condition = expectedCondition
-             .visibilityOf(personalInformationPage.firstName);
+             .visibilityOf(personalInformationPage.inputForFirstName);
         await browser.wait(condition, 3000, 'error waiting');
         await personalInformationPage.fillForm({
           firstName: 'Alejandro',

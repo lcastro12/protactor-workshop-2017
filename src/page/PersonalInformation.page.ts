@@ -2,19 +2,19 @@ import { ElementFinder, element, by } from 'protractor';
 
 export class PersonalInformationPage {
 
-  public get firstName(): ElementFinder {
+  public get inputForFirstName(): ElementFinder {
     return element(by.name('firstname'));
   }
 
-  private get lastName(): ElementFinder {
+  private get inputForLastName(): ElementFinder {
     return element(by.name('lastname'));
   }
 
-  private sex(sex: string): ElementFinder {
+  private markSex(sex: string): ElementFinder {
     return element(by.css(`[value="${sex}"]`));
   }
 
-  private experience(exp: string): ElementFinder {
+  private markExperience(exp: string): ElementFinder {
     return element(by.css(`[value="${exp}"]`));
   }
 
@@ -43,10 +43,10 @@ export class PersonalInformationPage {
   }
 
   public async fillForm(formData: any): Promise<void> {
-    await this.firstName.sendKeys(formData.firstName);
-    await this.lastName.sendKeys(formData.lastName);
-    await this.sex(formData.sex).click();
-    await this.experience(formData.experience).click();
+    await this.inputForFirstName.sendKeys(formData.firstName);
+    await this.inputForLastName.sendKeys(formData.lastName);
+    await this.markSex(formData.sex).click();
+    await this.markExperience(formData.experience).click();
 
     const listProfessions = formData.profession;
     for (const profession of listProfessions) {
