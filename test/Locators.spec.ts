@@ -30,7 +30,7 @@ describe(' Llenar Formulario', () => {
         });
       });
       it('el formulario debió ser completado', async () => {
-        await expect(personalInformationPage.page.getText())
+        await expect(personalInformationPage.getFormHeader.getText())
               .toBe('Practice Automation Form');
       });
     });

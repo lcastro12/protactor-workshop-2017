@@ -34,7 +34,7 @@ export class PersonalInformationPage {
     return element(by.cssContainingText('option', command));
   }
 
-  public get page(): ElementFinder {
+  public get getFormHeader(): ElementFinder {
     return element(by.id('content')).element(by.tagName('h1'));
   }
 
