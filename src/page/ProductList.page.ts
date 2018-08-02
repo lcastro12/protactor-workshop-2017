@@ -6,11 +6,13 @@ export class ProductListPage {
   }
 
   private findByProduct(nombre: string): ElementFinder {
-     return this.productContainerList.filter(function(element){
-          return element.element(by.tagName('h5')).element(by.tagName('a')).getText().then(function(text){
-              return text == nombre;
-          });
-      }).first();
+    return this.productContainerList.filter(function (element) {
+      return element.element(by.tagName('h5'))
+        .element(by.tagName('a'))
+         .getText().then(function (text) {
+           return text == nombre;
+         });
+    }).first();
   }
 
   public selectProduct(nombre:string): promise.Promise<void> {
