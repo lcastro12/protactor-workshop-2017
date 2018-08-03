@@ -23,11 +23,7 @@ export class IFramePage {
         await browser.switchTo().frame(this.getiFrame1.getWebElement());
     }
 
-    public get getTitleFrame1(): ElementFinder{
-        return element(by.id('content')).element(by.tagName('h1'));
-    }
-
-    public async switchToInicialContext() {
+    public async switchToInitialContext() {
         await browser.switchTo().defaultContent();
     }
 

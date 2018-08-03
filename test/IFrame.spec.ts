@@ -23,11 +23,11 @@ describe('Buy a t-shirt', () => {
             await iFramePage.switchToFrame1();
           });
           it('Verificado el título principal del iFrame', async () => {
-            await expect(iFramePage.getTitleFrame1.getText()).toBe('Practice Automation Form');
+            await expect(iFramePage.getTitlePage.getText()).toBe('Practice Automation Form');
           });
           describe('Volver al contexto principal', () => {
             beforeAll(async () => {
-              await iFramePage.switchToInicialContext();
+              await iFramePage.switchToInitialContext();
             });
             it('Verificado el título del contexto principal al volver', async () => {
               await expect(iFramePage.getTitlePage.getText()).toBe('Sample Iframe page');
