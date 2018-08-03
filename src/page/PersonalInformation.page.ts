@@ -42,6 +42,20 @@ export class PersonalInformationPage {
     return element(by.cssContainingText('button', 'Button'));
   }
 
+  public get inputChooseFile(): ElementFinder {
+    return element(by.id('photo'));
+  }
+
+  private async submitFile(filePath: string){
+    var path = require('path');
+    var absolutePath = path.resolve(__dirname,filePath);
+    await this.inputChooseFile.sendKeys(absolutePath);
+  }
+
+  public async clickButton(){
+    await this.button.click();
+  }
+
   public async fillForm(formData: any): Promise<void> {
     await this.inputForFirstName.sendKeys(formData.firstName);
     await this.inputForLastName.sendKeys(formData.lastName);
@@ -65,6 +79,8 @@ export class PersonalInformationPage {
       await this.getCommand(command).click();
     }
 
-    await this.button.click();
+    if(formData.file){
+    await this.submitFile(formData.file);}
+   
   }
 }

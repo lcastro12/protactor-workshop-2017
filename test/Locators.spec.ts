@@ -26,13 +26,22 @@ describe(' Llenar Formulario', () => {
             'Navigation Commands',
             'Switch Commands',
             'Wait Commands',
-            'WebElement Commands']
+            'WebElement Commands'],
+          file: '../../../resources/fondo-de-escritorio.jpg'
         });
       });
-      it('el formulario debió ser completado', async () => {
-        await expect(personalInformationPage.getFormHeader.getText())
-              .toBe('Practice Automation Form');
+      it('la imágen debe estar cargada', async () => {
+        await expect(personalInformationPage.inputChooseFile.getAttribute('value')).toBe('C:\\fakepath\\fondo-de-escritorio.jpg');
       });
+      describe(' seleccionar botón Button luego de llenar datos', () => {
+        beforeAll(async () => {
+          await personalInformationPage.clickButton();
+        });
+        it('el formulario debió ser completado', async () => {
+          await expect(personalInformationPage.getFormHeader.getText())
+                .toBe('Practice Automation Form');
+        });
+      });  
     });
   });
 });
