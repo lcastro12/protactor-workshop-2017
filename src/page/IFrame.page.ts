@@ -15,4 +15,16 @@ export class IFramePage {
         return await this.getiFrame1.getAttribute('height');
     }
 
+    public get getTitlePage(): ElementFinder {
+        return element(by.id('content')).element(by.tagName('h1'));
+    }
+
+    public async switchToFrame1() {
+        await browser.switchTo().frame(this.getiFrame1.getWebElement());
+    }
+
+    public async switchToInitialContext() {
+        await browser.switchTo().defaultContent();
+    }
+
 }
