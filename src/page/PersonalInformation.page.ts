@@ -1,4 +1,7 @@
 import { ElementFinder, element, by } from 'protractor';
+import { DownloadService } from '../service/Download.service';
+
+const downloadService: DownloadService = new DownloadService();
 
 export class PersonalInformationPage {
 
@@ -46,14 +49,29 @@ export class PersonalInformationPage {
     return element(by.id('photo'));
   }
 
-  private async submitFile(filePath: string){
-    var path = require('path');
-    var absolutePath = path.resolve(__dirname,filePath);
+  private async submitFile(filePath: string) {
+    const path = require('path');
+    const absolutePath = path.resolve(__dirname, filePath);
     await this.inputChooseFile.sendKeys(absolutePath);
   }
 
-  public async clickButton(){
+  public async clickButton() {
     await this.button.click();
+  }
+
+  private get downloadLink(): ElementFinder {
+    return element(by.linkText('Test File to Download'));
+  }
+
+  private async download(fileName: string) {
+
+    const link = await this.downloadLink.getAttribute('href');
+    return await downloadService.downloadFile(link, fileName);
+
+  }
+
+  public checkDownload(fileName: string) {
+    return downloadService.readFileFromTemp(fileName);
   }
 
   public async fillForm(formData: any): Promise<void> {
@@ -79,8 +97,9 @@ export class PersonalInformationPage {
       await this.getCommand(command).click();
     }
 
-    if(formData.file){
-    await this.submitFile(formData.file);}
-   
+    if (formData.file) {
+      await this.submitFile(formData.file); }
+
+    await this.download(formData.downloadFileName);
   }
 }
