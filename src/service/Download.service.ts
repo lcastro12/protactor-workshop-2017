@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import * as fetch from 'node-fetch';
 
 export class DownloadService {
- path =  `${__dirname}/../../../temp`;
+  path =  `${__dirname}/../../../temp`;
   public async downloadFile(link: string, filename): Promise<void> {
 
     if (!existsSync(this.path)) {

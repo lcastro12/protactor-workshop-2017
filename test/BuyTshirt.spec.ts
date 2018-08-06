@@ -4,12 +4,12 @@ import { MenuContentPage, ProductAddedModalPage, // ProductDetailPage,
    PaymentStepPage, BankPaymentPage, OrderResumePage, ProductListPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
-  describe('Abrir la página en el navegador', () => {
+  describe('Given the web page', () => {
     beforeAll(async () => {
       await browser.get('http://automationpractice.com/');
     });
 
-    describe('Proceso de compra de la camiseta', () => {
+    describe('when I want to buy a T-shirt', () => {
       const menuContentPage: MenuContentPage = new MenuContentPage();
       // const productDetailPage: ProductDetailPage = new ProductDetailPage();
       const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
@@ -30,7 +30,7 @@ describe('Buy a t-shirt', () => {
 
       });
 
-      describe('Logeo en la aplicación', () => {
+      describe('and I log in ', () => {
         const signInStepPage: SignInStepPage = new SignInStepPage();
         const addressStepPage: AddressStepPage = new AddressStepPage();
         beforeAll(async () => {
@@ -41,7 +41,7 @@ describe('Buy a t-shirt', () => {
 
         });
 
-        describe('Seleccionar la dirección por defecto', () => {
+        describe('and especify details of shipment delivery', () => {
           const shippingStepPage: ShippingStepPage = new ShippingStepPage();
           beforeAll(async () => {
 
@@ -50,7 +50,7 @@ describe('Buy a t-shirt', () => {
 
           });
 
-          describe('Pago en el banco', () => {
+          describe('and I pay', () => {
             const paymentStepPage: PaymentStepPage = new PaymentStepPage();
             const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
             const orderResumePage: OrderResumePage = new OrderResumePage();

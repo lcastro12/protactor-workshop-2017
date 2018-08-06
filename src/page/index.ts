@@ -11,4 +11,3 @@ export { OrderResumePage } from './OrderResume.page';
 export { ProductListPage } from './ProductList.page';
 export { PersonalInformationPage } from './PersonalInformation.page';
 export { IFramePage } from './IFrame.page';
-

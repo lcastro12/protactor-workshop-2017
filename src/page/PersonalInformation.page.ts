@@ -48,7 +48,7 @@ export class PersonalInformationPage {
   public get inputChooseFile(): ElementFinder {
     return element(by.id('photo'));
   }
-  
+
   private async submitFile(filePath: string) {
     const path = require('path');
     const absolutePath = path.resolve(__dirname, filePath);
@@ -98,7 +98,8 @@ export class PersonalInformationPage {
     }
 
     if (formData.file) {
-      await this.submitFile(formData.file); }
+      await this.submitFile(formData.file);
+    }
 
     await this.download(formData.downloadFileName);
   }
