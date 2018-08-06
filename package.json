@@ -9,9 +9,10 @@
     "build": "tsc",
     "test:local": "npm run build && protractor dist/protractor/config.js",
     "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
-    "test": "npm run test:headless",
     "postinstall": "webdriver-manager update --gecko false",
-    "lint": "tslint --type-check --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts"
+    "lint": "tslint --type-check --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts",
+    "test:saucelabs": "npm run build && protractor dist/protractor/saucelabs.config.js",
+    "test": "npm run test:saucelabs"
   },
   "repository": {
     "type": "git",
@@ -30,10 +31,12 @@
   },
   "homepage": "https://github.com/lcastro12/protractor-workshop-2017#readme",
   "dependencies": {
+    "enable-travis": "^1.0.0",
     "protractor": "^5.3.2"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
+    "cross-env": "^5.2.0",
     "jasmine-awesome-report": "0.0.3",
     "jasmine-spec-reporter": "^4.2.1",
     "tslint": "^5.11.0",
