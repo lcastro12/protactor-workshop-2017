@@ -48,7 +48,7 @@ export class PersonalInformationPage {
   public get inputChooseFile(): ElementFinder {
     return element(by.id('photo'));
   }
-
+  
   private async submitFile(filePath: string) {
     const path = require('path');
     const absolutePath = path.resolve(__dirname, filePath);

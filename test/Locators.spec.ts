@@ -57,6 +57,15 @@ describe(' Llenar Formulario', () => {
                 .toBe('Practice Automation Form');
         });
       });
+      describe(' seleccionar botón Button luego de llenar datos', () => {
+        beforeAll(async () => {
+          await personalInformationPage.clickButton();
+        });
+        it('el formulario debió ser completado', async () => {
+          await expect(personalInformationPage.getFormHeader.getText())
+                .toBe('Practice Automation Form');
+        });
+      });  
     });
   });
 });
